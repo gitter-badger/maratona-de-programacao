@@ -2,7 +2,7 @@
 
 int *ordernar(int quant_num, int *num)
 {
-    int x, y, temp;
+    int x, y, temp, desc[quant_num];
 
     for(x = 0; x < quant_num; x++)
     {
@@ -17,7 +17,9 @@ int *ordernar(int quant_num, int *num)
         }
     }
 
-    for(x = 0; x < quant_num; x++) num[x] = num[x+1];
+    for(x = quant_num - 1; x >= 0; x--) desc[x] = num[quant_num - x];
+
+    for(x = 0; x < quant_num; x++) num[x] = desc[x];
 
     num[quant_num] = 0;
 
@@ -43,8 +45,8 @@ int main()
 
 /* SAÍDA
 
-2
-3
 4
+3
+2
 
 */
